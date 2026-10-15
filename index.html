@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robin's Proposal for Murshada 💘</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1a0a1e, #2d1b3e, #1a0a1e);
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-heart {
+            position: absolute;
+            font-size: 20px;
+            animation: floatUp linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-10vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            text-align: center;
+            z-index: 1;
+            padding: 30px 20px;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .envelope {
+            font-size: 80px;
+            animation: bounce 2s ease-in-out infinite;
+            cursor: pointer;
+            filter: drop-shadow(0 0 20px rgba(255, 105, 180, 0.5));
+            transition: transform 0.3s;
+        }
+
+        .envelope:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .message-card {
+            display: none;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 105, 180, 0.3);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 0 40px rgba(255, 105, 180, 0.2);
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .hearts {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5em;
+            background: linear-gradient(135deg, #ff6b9d, #ffa07a, #ff6b9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            text-shadow: none;
+        }
+
+        .from {
+            color: #ff6b9d;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .message {
+            color: #e0c3fc;
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .question {
+            color: #ffffff;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8em;
+            margin: 25px 0;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+            position: relative;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 1.1em;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-yes {
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            color: white;
+            box-shadow: 0 5px 20px rgba(255, 107, 157, 0.4);
+        }
+
+        .btn-yes:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(255, 107, 157, 0.6);
+        }
+
+        .btn-no {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            position: relative;
+            transition: all 0.15s ease;
+        }
+
+        .btn-no:hover {
+            transform: scale(0.95);
+        }
+
+        .celebration {
+            display: none;
+            margin-top: 20px;
+            animation: fadeIn 1s ease;
+        }
+
+        .celebration h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2em;
+            color: #ff6b9d;
+            margin-bottom: 10px;
+        }
+
+        .celebration p {
+            color: #e0c3fc;
+            font-size: 1.1em;
+        }
+
+        .big-hearts {
+            font-size: 50px;
+            animation: celebrate 0.5s ease infinite alternate;
+        }
+
+        @keyframes celebrate {
+            from { transform: scale(1) rotate(-5deg); }
+            to { transform: scale(1.2) rotate(5deg); }
+        }
+
+        .hint {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.9em;
+            margin-top: 15px;
+            animation: fadeIn 2s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts-bg" id="heartsBg"></div>
+
+    <div class="container">
+        <div id="envelopeDiv">
+            <div class="envelope" id="envelope">💌</div>
+            <p class="hint">Tap koro letter ta khulte...</p>
+        </div>
+
+        <div class="message-card" id="messageCard">
+            <div class="hearts">💖 💕 💖</div>
+            <h1>Hey Murshada... 💕</h1>
+            <div class="from">— Robin 🌹</div>
+            <p class="message">
+                Tumi amar life er shob cheye special insaan.<br>
+                Tomar hasi amar sob cheye bhalo lage.<br>
+                Ami chai tomar sathe thakte pari<br>
+                sokale bhorale, din raat, shob somoy...
+            </p>
+            <p class="question">Murshada, Will You Be My Forever? 💍</p>
+
+            <div class="buttons" id="buttons">
+                <button class="btn btn-yes" id="btnYes" onclick="sayYes()">Haan 💕</button>
+                <button class="btn btn-no" id="btnNo" onmouseover="runAway()" onclick="runAway()">Na</button>
+            </div>
+
+            <div class="celebration" id="celebration">
+                <div class="big-hearts">💖💘💖</div>
+                <h2>YES!!! 🎉</h2>
+                <p>Murshada, tumi amar life er shob cheye bhalo khabar! 💘<br>
+                Ami tomar sathe thakte chai sokal bela theke rat raat... 🌙✨</p>
+                <div class="big-hearts">💘💖💘</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const container = document.getElementById('heartsBg');
+        const heartSymbols = ['💖', '💕', '💘', '💗', '❤️', '✨', '🌹'];
+
+        function createBgHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('bg-heart');
+            heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.fontSize = (15 + Math.random() * 25) + 'px';
+            heart.style.animationDuration = (5 + Math.random() * 10) + 's';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            container.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 15000);
+        }
+
+        setInterval(createBgHeart, 400);
+
+        for (let i = 0; i < 10; i++) {
+            setTimeout(createBgHeart, i * 200);
+        }
+
+        document.getElementById('envelope').addEventListener('click', function() {
+            document.getElementById('envelopeDiv').style.display = 'none';
+            document.getElementById('messageCard').style.display = 'block';
+        });
+
+        function runAway() {
+            const btn = document.getElementById('btnNo');
+            const container = document.getElementById('buttons');
+            const rect = container.getBoundingClientRect();
+
+            const newX = Math.random() * (rect.width - 80);
+            const newY = Math.random() * 40 - 20;
+
+            btn.style.position = 'absolute';
+            btn.style.left = newX + 'px';
+            btn.style.top = newY + 'px';
+
+            const messages = ['Bujhcho to? 😅', 'Eta na option na! 🙈', 'Think again! 🤔', 'Ei button ta kaaj kore na! 😜', 'Only Haan button! 💕'];
+            btn.textContent = messages[Math.floor(Math.random() * messages.length)];
+        }
+
+        function sayYes() {
+            document.getElementById('buttons').style.display = 'none';
+            document.querySelector('.question').style.display = 'none';
+            document.getElementById('celebration').style.display = 'block';
+
+            for (let i = 0; i < 30; i++) {
+                setTimeout(createBgHeart, i * 100);
+            }
+        }
+    </script>
+</body>
+</html>
